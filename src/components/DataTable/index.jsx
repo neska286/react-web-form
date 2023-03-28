@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const DataTable = ({searchData}) => {
+const DataTable = ({ searchData }) => {
   return (
     <>
-         <table className="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -13,14 +13,10 @@ const DataTable = ({searchData}) => {
             <th scope="col">score</th>
           </tr>
         </thead>
-        <tbody>
-        
-        {searchData}
-        
-        </tbody>
-</table>
+        <tbody>{searchData}</tbody>
+      </table>
     </>
-  )
-}
+  );
+};
 
-export default DataTable
+export default DataTable;
