@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary p-2 fixed-bottom">
+    <footer className="bg-secondary p-2 fixed-bottom" style={{zIndex:"-2"}}>
       <div className="container">
         <div className="row">
           <div className="col-12">

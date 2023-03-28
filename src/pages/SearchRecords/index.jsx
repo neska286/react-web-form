@@ -19,6 +19,7 @@ const SearchRecordsPage = () => {
   const [query, setQuery] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [error, setError] = useState(false);
   const searchData = data.map((item) => (
     <tr key={item.query_id}>
       <td>{item.name}</td>
@@ -40,8 +41,10 @@ const SearchRecordsPage = () => {
   function handleDrawerClose() {
     setIsDrawerOpen(false);
   }
+  
   function handleSubmit(e){
     e.preventDefault();
+    if (query.fname === '' && query.mname === '' && query.lname === '' && query.nat === '') setError(true)
     setLoading(true);
     const payload = {
       fname: query.fname,
@@ -60,6 +63,7 @@ const SearchRecordsPage = () => {
         setLoading(false);
         setQuery(initialState);
         setIsDrawerOpen(false);
+        setError(false)
       })
       .catch((error) => {
         setLoading(false);
@@ -113,6 +117,7 @@ const SearchRecordsPage = () => {
           setQuery={setQuery}
           loading={loading}
           handleClose={handleClose}
+          error={error}
         />
       </div>
       <Footer />

@@ -12,6 +12,7 @@ const FormDrawer = ({
   setQuery,
   loading,
   handleClose,
+  error
 }) => {
   return (
     <>
@@ -28,6 +29,7 @@ const FormDrawer = ({
           setQuery={setQuery}
           loading={loading}
           handleClose={handleClose}
+          error={error}
         />
       </Drawer>
     </>

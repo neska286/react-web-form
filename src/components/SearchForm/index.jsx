@@ -6,28 +6,30 @@ const SearchForm = ({
   setQuery,
   loading,
   handleClose,
+  error
 }) => {
   function handleInput(ev) {
     setQuery((prevState) => ({
       ...prevState,
       [ev.target.name]: ev.target.value,
     }));
+    ev.target.setCustomValidity("");
   }
   return (
     <div className="p-5">
       <form className="row" onSubmit={handleSubmit}>
         <div className="col-md-12 mb-3">
-          <label className="d-flex mb-2">FullName*</label>
+          <label className="d-flex mb-2">FirstName*</label>
           <input
             type="text"
             name="fname"
             className="form-control"
-            placeholder="search...."
+            placeholder="search..."
             onChange={handleInput}
             value={query.fname}
-            error={query.fname === ""}
-            required
           />
+          {error && 
+                <span className='d-flex text-danger'>Please enter your firstName</span>}
         </div>
         <div className="col-md-12 mb-3">
           <label className="d-flex mb-2">MiddleName*</label>
@@ -35,12 +37,12 @@ const SearchForm = ({
             type="text"
             name="mname"
             className="form-control"
-            placeholder="search...."
+            placeholder="search..."
             onChange={handleInput}
             value={query.mname}
-            error={query.mname === ""}
-            required
           />
+          {error && 
+                <span className='d-flex text-danger'>Please enter your middleName</span>}
         </div>
         <div className="col-md-12 mb-3">
           <label className="d-flex mb-2">LastName*</label>
@@ -48,12 +50,12 @@ const SearchForm = ({
             type="text"
             name="lname"
             className="form-control"
-            placeholder="search...."
+            placeholder="search..."
             onChange={handleInput}
             value={query.lname}
-            error={query.lname === ""}
-            required
           />
+          {error && 
+                <span className='d-flex text-danger'>Please enter your lastName</span>}
         </div>
         <div className="col-md-12 mb-3">
           <label className="d-flex mb-2">Nationality*</label>
@@ -64,9 +66,9 @@ const SearchForm = ({
             placeholder="search...."
             onChange={handleInput}
             value={query.nat}
-            error={query.nat === ""}
-            required
           />
+          {error && 
+                <span className='d-flex text-danger'>Please enter your nationality</span>}
         </div>
         <div className="mt-5 d-flex justify-content-evenly">
           <button
