@@ -28,7 +28,6 @@ const SearchRecordsPage = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         setLoading(true);
         const payload = {
             fname: query.fname,
@@ -54,7 +53,7 @@ const SearchRecordsPage = () => {
         setIsDrawerOpen(true);
     }
 
-    const toggleDrawer = () => {
+    function toggleDrawer(){
         setIsDrawerOpen((prevState) => !prevState)
     }
     const searchData = data.map(item => (
